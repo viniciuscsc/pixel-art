@@ -6,7 +6,12 @@ function randomColors() {
     return color;
 }
 
-let randomColor = document.getElementsByClassName("color");
-for (let index = 1; index < randomColor.length; index += 1) {
-    randomColor[index].style.backgroundColor = randomColors();
+function updatePaletteColors() {
+    let randomColor = document.getElementsByClassName("color");
+    for (let index = 1; index < randomColor.length; index += 1) {
+        randomColor[index].style.backgroundColor = randomColors();
+    }
 }
+
+const button = document.getElementById("button-random-color");
+button.addEventListener("click", updatePaletteColors);
