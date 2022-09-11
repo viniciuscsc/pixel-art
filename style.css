@@ -2,7 +2,6 @@
   background-color: black;
   border: black solid 1px;
   display: inline-block;
-  margin-right: 10px;
   height: 50px;
   width: 50px;
 }
@@ -25,12 +24,15 @@
 }
 
 #pixel-board {
-  width: 330px;
+  height: 210px;
+  width: 210px;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .pixel {
-  height: 60px;
-  width: 60px;
+  height: 40px;
+  width: 40px;
   border: black solid 1px;
-  display: inline-block;
+  background-color: white;
 }

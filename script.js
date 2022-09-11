@@ -45,3 +45,22 @@ function recuperaUltimaPaleta() {
 if (localStorage.getItem('colorPalette') !== null) {
   recuperaUltimaPaleta();
 }
+
+function selecionaCor(event) {
+  const caixaDeCor = document.getElementsByClassName('color');
+
+  for (let index = 0; index < 4; index += 1) {
+    const caixaAtual = caixaDeCor[index];
+    caixaAtual.className = 'color';
+  }
+
+  event.target.className = 'color selected';
+  
+}
+
+const caixaDeCor = document.getElementsByClassName('color');
+
+for (let index = 0; index < 4; index += 1) {
+  const caixaAtual = caixaDeCor[index];
+  caixaAtual.addEventListener('click', selecionaCor);
+}
