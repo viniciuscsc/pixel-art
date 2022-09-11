@@ -1,28 +1,47 @@
-function randomColors() {
-    let red = parseInt((Math.random()) * 255);
-    let green = parseInt((Math.random()) * 255);
-    let blue = parseInt((Math.random()) * 255);
-    let color = 'rgb(' + red + ', ' + green + ', ' + blue + ')';
-    
-    return color;
+function geraCorAleatoria() {
+  const caracteresPossiveis = '0123456789ABCDEF';
+  let cor = '#';
+  
+  for (let index = 0; index < 6; index += 1) {
+    const novoCaractere = caracteresPossiveis[Math.floor(Math.random() * 16)];
+    cor += novoCaractere;
+  }
+  
+  return cor;
 }
 
-function updatePaletteColors() {
-    let randomColor = document.getElementsByClassName('color');
-    
-    for (let index = 1; index < randomColor.length; index += 1) {
-        randomColor[index].style.backgroundColor = randomColors();
-        
-        currentKey = 'color' + index;
-        currentValue = randomColor[index].style.backgroundColor;
+function geraNovaPaleta() {
+  const caixaDeCor = document.getElementsByClassName('color');
+  let paleta = [];
 
-        savePaletteColors(currentKey, currentValue);
-    }    
+  for (let index = 1; index < 4; index += 1) {
+    const caixaAtual = caixaDeCor[index];
+    const corAleatoria = geraCorAleatoria();
+    caixaAtual.style.backgroundColor = corAleatoria;
+    paleta.push(corAleatoria);
+  }
+
+  gravaUltimaPaleta(paleta);
 }
 
-function savePaletteColors(key, value) {
-    localStorage.setItem(key, value);
+const botaoCoresAleatorias = document.getElementById('button-random-color');
+botaoCoresAleatorias.addEventListener('click', geraNovaPaleta);
+
+function gravaUltimaPaleta(value) {
+  localStorage.setItem('colorPalette', JSON.stringify(value));
 }
 
-const button = document.getElementById('button-random-color');
-button.addEventListener('click', updatePaletteColors);
+function recuperaUltimaPaleta() {
+  const ultimaPaleta = JSON.parse(localStorage.getItem('colorPalette'));
+  const caixaDeCor = document.getElementsByClassName('color');
+
+  for (let index = 1; index < 4; index += 1) {
+    const caixaAtual = caixaDeCor[index];
+    const corRecuperada = ultimaPaleta[index - 1];
+    caixaAtual.style.backgroundColor = corRecuperada;
+  }
+}
+
+if (localStorage.getItem('colorPalette') !== null) {
+  recuperaUltimaPaleta();
+}
