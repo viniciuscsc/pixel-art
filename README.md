@@ -1,10 +1,11 @@
-# :construction: README em construção ! :construction:
-<!-- Olá, Tryber!
-Esse é apenas um arquivo inicial para o README do seu projeto.
-É essencial que você preencha esse documento por conta própria, ok?
-Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua criatividade brilhar!
-:warning: IMPORTANTE: você precisa deixar nítido:
-- quais arquivos/pastas foram desenvolvidos por você; 
-- quais arquivos/pastas foram desenvolvidos por outra pessoa estudante;
-- quais arquivos/pastas foram desenvolvidos pela Trybe.
--->
+# Projeto Pixel Art
+
+## Descrição
+Projeto desenvolvido durante a seção de `JavaScript: DOM, Eventos e Web Storage`, do módulo de Fundamentos, do curso de Desenvolvimento Web Full Stack da Trybe.
+
+Utilização de ``HTML`` e ``CSS`` para a estrutura e estilo da página e ``JavaScript`` para permitir a ``interação do usuário`` com a paleta de cores.
+
+## Tecnologias utilizadas
+- HTML
+- CSS
+- JavaScript
